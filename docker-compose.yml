@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  # YAMLテンプレート生成サービス
+  generate:
+    build: .
+    volumes:
+      - ./システムアンケート回答.csv:/app/システムアンケート回答.csv:ro
+      - ./config:/app/config
+      - ./scripts:/app/scripts:ro
+    command: python3 /app/scripts/generate_template.py
+    
+  # ユーザーID追加・ソート処理サービス
+  process:
+    build: .
+    volumes:
+      - ./システムアンケート回答.csv:/app/システムアンケート回答.csv:ro
+      - ./config:/app/config:ro
+      - ./output:/app/output
+      - ./scripts:/app/scripts:ro
+    command: python3 /app/scripts/add_user_id.py
