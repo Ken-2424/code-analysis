@@ -1,0 +1,26 @@
+# Gitで管理しないファイル
+
+# 設定ファイル(生成されるため)
+config/
+
+
+# Python関連
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Docker関連
+.dockerignore
+
+# IDE関連
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS関連
+.DS_Store
+Thumbs.db
