@@ -19,3 +19,11 @@ services:
       - ./output:/app/output
       - ./scripts:/app/scripts:ro
     command: python3 /app/scripts/add_user_id.py
+  
+  # E1~E3質問回答取得サービス
+  query:
+    build: .
+    volumes:
+      - ./output:/app/output:ro
+      - ./scripts:/app/scripts:ro
+    command: python3 /app/scripts/query_responses.py
